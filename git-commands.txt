@@ -2,6 +2,6 @@ git add [name of file] - This command adds the modified file or a new file to th
 git status - This command shows the status of the repository, which files are unstaged, or not commited.
 git commit -m [message] - Commits the latest staged changes.
 git push origin master - Pushes the repository to the remote repository(which is our github repo).
-git add remote [git remote repo link] - Links the remote repository to the local repository.
+git remote add [short name] [git remote repo link] - Links the remote repository to the local repository.
 git log - Check commits made in the repository.
 git diff - Check the changes made to the current repo state to the old commits.
