@@ -1,4 +1,5 @@
-# Simple Repository
+# Super 30 Java Course Assignments
 ____
 
-This is a simple repository created for Super 30 Java course.
+This repository contains all the assignments submitted for __Super 30__ Java course.
+> Sorted by the date of submission
