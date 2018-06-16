@@ -6,7 +6,10 @@ public class Q1{
         String rev = "";
         for(int i=0;i<str.length();i++){
             if(str.charAt(i)==' ' || i==str.length()-1){
-                stop = i+1;
+                if(i!=str.length()-1)
+                    stop = i;
+                else
+                    stop = i+1;
                 rev = str.substring(start,stop) + rev;
                 start = i+1;
                 if(i!=str.length()-1)
