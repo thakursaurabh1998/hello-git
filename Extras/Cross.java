@@ -13,5 +13,6 @@ public class Cross{
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         cross(n);
+        in.close();
     }
 }
