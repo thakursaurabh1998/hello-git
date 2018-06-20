@@ -1,3 +1,4 @@
 *.class
 bash.exe.stackdump
 .vscode
+JavaWorkspace.code-workspace
