@@ -1,11 +1,11 @@
-class Stack {
+class Stack<T> {
     private int length = 0;
     private int stackL = 0;
-    private int stack[];
+    private T stack[];
 
     Stack() {
         this.stackL = 6;
-        this.stack = new int[this.stackL];
+        this.stack = (T[])new Object[this.stackL];
     }
 
     // Returns the 1-based position where an object is on this stack.
@@ -13,7 +13,7 @@ class Stack {
     // the distance from the top of the stack of the occurrence nearest the top of
     // the stack;
     // the topmost item on the stack is considered to be at distance 1.
-    int search(int x) {
+    int search(T x) {
         int count = 1;
         for (int i = this.length - 1; i >= 0; i--) {
             if (x == this.stack[i])
@@ -24,7 +24,7 @@ class Stack {
     }
 
     // Pushes an item onto the top of this stack.
-    int push(int obj) {
+    T push(T obj) {
         if (this.length >= this.stackL)
             this.increaseLength();
         this.stack[this.length] = obj;
@@ -34,21 +34,21 @@ class Stack {
 
     // Looks at the object at the top of this stack without removing it from the
     // stack.
-    int peek() {
+    T peek() {
         return this.stack[this.length - 1];
     }
 
     // Removes the object at the top of this stack and returns that object as the
     // value of this function.
-    int pop() {
+    T pop() {
         try {
-            int obj = this.stack[this.length - 1];
+            T obj = this.stack[this.length - 1];
             this.length--;
             this.decreaseLength();
             return obj;
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("The stack is empty, can't be popped");
-            return -1;
+            return null;
         }
     }
 
@@ -62,9 +62,9 @@ class Stack {
 
     private void increaseLength() {
         this.stackL = this.stackL * 3 / 2;
-        int temp[] = new int[this.stackL];
+        T temp[] = (T[])new Object[this.stackL];
         int p = 0;
-        for (int i : this.stack) {
+        for (T i : this.stack) {
             temp[p++] = i;
         }
         this.stack = temp;
@@ -74,7 +74,7 @@ class Stack {
         if (this.stackL <= 6 || (this.stackL - this.length) < 6)
             return;
         this.stackL -= 6;
-        int temp[] = new int[this.stackL];
+        T temp[] = (T[])new Object[this.stackL];
         for (int i = 0; i < this.length; i++) {
             temp[i] = this.stack[i];
         }
@@ -84,7 +84,7 @@ class Stack {
 
 public class MyStack {
     public static void main(String[] args) {
-        Stack myStack = new Stack();
+        Stack<Integer> myStack = new Stack<>();
         System.out.println("Is array empty? " + myStack.empty()); // demo of empty function
         System.out.println("Pushing: " + myStack.push(1)); // pushing to the top of the stack
         System.out.println("Is array empty? " + myStack.empty()); // demo of empty function
